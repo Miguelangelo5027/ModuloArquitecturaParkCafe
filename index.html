@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Módulo de Arquitectura — Casas Tradicionales de la Región Cafetera. Museo del Parque del Café." />
+  <title>Arquitectura Cafetera — Museo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="presentation" id="presentation">
+    <!-- Progress bar -->
+    <div class="nav__progress-bar" id="progress-bar"></div>
+
+    <!-- Slides container (populated by JS) -->
+    <div class="slides-container" id="slides-container"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav__buttons">
+        <button class="nav__btn" id="btn-prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span>Anterior</span>
+        </button>
+      </div>
+
+      <div class="nav__progress">
+        <div class="nav__dots" id="nav-dots"></div>
+        <span class="nav__counter" id="nav-counter"></span>
+      </div>
+
+      <div class="nav__buttons">
+        <button class="nav__btn" id="btn-next" aria-label="Siguiente">
+          <span>Siguiente</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Keyboard hint -->
+    <div class="keyboard-hint">
+      <kbd>←</kbd> <kbd>→</kbd> para navegar
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
