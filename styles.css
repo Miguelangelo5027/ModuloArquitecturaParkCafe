@@ -11,30 +11,83 @@
      Inspirada en el sitio oficial parquedelcafe.co
      ============================================ */
 
-  /* Fondos principales */
+  /* ── Fondos principales ── */
+
+  /* Fondo general del body, de la presentación y del scrollbar track.
+     También se usa como fondo del título cover (.slide__title--cover)
+     y en el overlay degradado de la barra de navegación inferior. */
   --color-bg: #F5F0E8;
+
+  /* Variante cálida del fondo. Disponible como alternativa pero
+     actualmente no se usa directamente en ningún selector. */
   --color-bg-warm: #EDE7DA;
+
+  /* Fondo blanco para superficies elevadas, usado en las teclas (<kbd>)
+     del hint de teclado (.keyboard-hint kbd). */
   --color-surface: #FFFFFF;
+
+  /* Variante clara de superficie. Disponible como alternativa pero
+     actualmente no se usa directamente en ningún selector. */
   --color-surface-light: #F9F6F0;
 
-  /* Verdes — Naturaleza y vegetación cafetera */
+  /* ── Verdes — Naturaleza y vegetación cafetera ── */
+
+  /* Verde oscuro: color principal de los botones de navegación (.nav__btn),
+     borde del título cover (.slide__title--cover) y color de texto
+     del subtítulo de cada slide (.slide__subtitle). */
   --color-green-dark: #2E7D32;
+
+  /* Verde medio: fondo y borde de los botones de navegación en hover
+     (.nav__btn:hover), y borde de los dots de progreso en hover
+     (.nav__dot:hover). */
   --color-green: #43A047;
+
+  /* Verde claro: color del scrollbar thumb y fondo de los dots de
+     progreso en hover (.nav__dot:hover). */
   --color-green-light: #66BB6A;
 
-  /* Dorados — Calidez del café y el sol */
+  /* ── Dorados — Calidez del café y el sol ── */
+
+  /* Dorado: fondo del dot activo (.nav__dot--active) y parte final
+     del gradiente de la barra de progreso superior. */
   --color-gold: #F9A825;
+
+  /* Dorado oscuro: borde del dot activo (.nav__dot--active). */
   --color-gold-dark: #F57F17;
 
-  /* Marrones — Tonos del café y la tierra */
+  /* ── Marrones — Tonos del café y la tierra ── */
+
+  /* Marrón oscuro: color del título de cada slide (.slide__title),
+     del título cover y del texto de las teclas del teclado
+     (.keyboard-hint kbd). */
   --color-brown: #4E342E;
-  --color-brown-light: #6D4C41;
+
+  /* Marrón claro: borde de los dots de progreso inactivos (.nav__dot)
+     y borde de las teclas del hint de teclado (.keyboard-hint kbd). */
+  --color-brown-light: #ffae00;
+
+  /* Crema: tono reservado para fondos especiales. Actualmente no se
+     usa directamente en ningún selector. */
   --color-cream: #FFF8E1;
 
-  /* Rojos y acentos — Identidad Parque del Café */
+  /* ── Rojos y acentos — Identidad Parque del Café ── */
+
+  /* Rojo: fondo de la etiqueta/tag (.slide__tag) y parte inicial
+     del gradiente de la barra de progreso superior. */
   --color-red: #C62828;
+
+  /* Texto principal: color base del body para todo el texto general
+     de la presentación. */
   --color-text: #3E2723;
+
+  /* Texto atenuado: color de la descripción de cada slide
+     (.slide__description), del contador de navegación (.nav__counter)
+     y del hint de teclado (.keyboard-hint). */
   --color-text-muted: #6D4C41;
+
+  /* Acento naranja: color disponible para destacar elementos
+     interactivos. Actualmente no se usa directamente en ningún
+     selector. */
   --color-accent: #FF7043;
 
   /* ============================================
@@ -108,7 +161,7 @@ body {
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
-  filter: blur(4px);
+  filter: blur(2px);
   transform: scale(1.05);
 }
 
@@ -276,7 +329,7 @@ body {
   right: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--space-md) var(--space-lg);
   z-index: 100;
   background: linear-gradient(to top, rgba(245,240,232,0.97) 0%, rgba(245,240,232,0.8) 60%, transparent 100%);

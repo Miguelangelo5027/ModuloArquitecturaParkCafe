@@ -65,13 +65,29 @@ let current = 0;
 let direction = 'right';
 const total = slides.length;
 
+/* ===== AUTOPLAY ===== */
+const AUTOPLAY_INTERVAL = 6000; // milisegundos entre cada avance automático
+let autoplayTimer = null;
+
+/** Inicia o reinicia el temporizador de autoplay. */
+function resetAutoplay() {
+  clearInterval(autoplayTimer);
+  autoplayTimer = setInterval(() => {
+    if (current < total - 1) {
+      goTo(current + 1);
+    } else {
+      goTo(0); // vuelve al inicio
+    }
+  }, AUTOPLAY_INTERVAL);
+}
+
 /* ===== DOM REFERENCES ===== */
 const container   = document.getElementById('slides-container');
 const progressBar = document.getElementById('progress-bar');
 const dotsWrapper  = document.getElementById('nav-dots');
 const counter     = document.getElementById('nav-counter');
-const btnPrev     = document.getElementById('btn-prev');
-const btnNext     = document.getElementById('btn-next');
+// const btnPrev     = document.getElementById('btn-prev');  // COMENTADO — botones ocultos
+// const btnNext     = document.getElementById('btn-next');  // COMENTADO — botones ocultos
 
 /* ===== BUILD SLIDES ===== */
 function buildSlides() {
@@ -145,9 +161,9 @@ function updateUI() {
   // Counter
   counter.textContent = `${current + 1} / ${total}`;
 
-  // Button states
-  btnPrev.disabled = current === 0;
-  btnNext.disabled = current === total - 1;
+  // Button states (comentado — botones ocultos)
+  // btnPrev.disabled = current === 0;
+  // btnNext.disabled = current === total - 1;
 }
 
 /* ===== NAVIGATION ===== */
@@ -156,14 +172,15 @@ function goTo(index) {
   direction = index > current ? 'right' : 'left';
   current = index;
   updateUI();
+  resetAutoplay(); // reinicia el timer tras cualquier navegación
 }
 
 function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
 
 /* ===== EVENT LISTENERS ===== */
-btnNext.addEventListener('click', next);
-btnPrev.addEventListener('click', prev);
+// btnNext.addEventListener('click', next);  // COMENTADO — botones ocultos
+// btnPrev.addEventListener('click', prev);  // COMENTADO — botones ocultos
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight' || e.key === ' ') {
@@ -179,3 +196,4 @@ document.addEventListener('keydown', (e) => {
 buildSlides();
 buildDots();
 updateUI();
+resetAutoplay(); // arranca el autoplay al cargar
