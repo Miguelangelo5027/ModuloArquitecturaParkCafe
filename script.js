@@ -1,5 +1,12 @@
 /**
  * Datos de las diapositivas del módulo de arquitectura cafetera.
+ * seguir patron
+ * id: identificador
+ * type: tipo de diapositiva, solo en caso de ser portada o cierre se debe agregar este atributo, si no se agrega se toma como normal
+ * tag: etiqueta de la diapositiva
+ * title: título de la diapositiva
+ * description: descripción de la diapositiva
+ * image: imagen de la diapositiva (ruta de la imagen), se agrega solo en caso de ser normal
  */
 const slides = [
   {
@@ -52,6 +59,13 @@ const slides = [
     image: 'museo-cafetero/src/images/Vista-de-una-finca-de-cafe-en-Guatemala-perspectiva-con-cafetos-1024x683.jpg',
   },
   {
+    id: 'patios',
+    tag: 'Espacio Central',
+    title: 'El Patio Interior',
+    description: 'Centro de la casa con jardín, fuente de agua y macetas de barro.',
+    image: 'museo-cafetero/src/images/Destacada-Casa-Campesina-Cortar-con-Zoom-1.jpg',
+  },
+  {
     id: 'cierre',
     type: 'cover',
     tag: 'Patrimonio de la Humanidad',
@@ -82,10 +96,10 @@ function resetAutoplay() {
 }
 
 /* ===== DOM REFERENCES ===== */
-const container   = document.getElementById('slides-container');
+const container = document.getElementById('slides-container');
 const progressBar = document.getElementById('progress-bar');
-const dotsWrapper  = document.getElementById('nav-dots');
-const counter     = document.getElementById('nav-counter');
+const dotsWrapper = document.getElementById('nav-dots');
+const counter = document.getElementById('nav-counter');
 // const btnPrev     = document.getElementById('btn-prev');  // COMENTADO — botones ocultos
 // const btnNext     = document.getElementById('btn-next');  // COMENTADO — botones ocultos
 
@@ -95,7 +109,6 @@ function buildSlides() {
     const div = document.createElement('div');
     div.id = `slide-${slide.id}`;
     div.className = 'slide';
-
     const innerClass = slide.type === 'cover'
       ? 'slide__inner slide__inner--cover'
       : 'slide__inner';
@@ -107,7 +120,6 @@ function buildSlides() {
           <img class="slide__image" src="${slide.image}" alt="${slide.title}" />
         </div>`;
     }
-
     const titleClass = slide.type === 'cover'
       ? 'slide__title slide__title--cover'
       : 'slide__title';
@@ -140,7 +152,7 @@ function buildDots() {
 /* ===== UPDATE UI ===== */
 function updateUI() {
   const slideEls = container.children;
-  const dotEls   = dotsWrapper.children;
+  const dotEls = dotsWrapper.children;
 
   for (let i = 0; i < total; i++) {
     if (i === current) {
